@@ -35,7 +35,7 @@ class CustomLayout extends React.Component {
               <Link to="/">Home</Link>
             </Breadcrumb.Item>
             <Breadcrumb.Item>
-              <Link to="/">List</Link>
+              <Link to={`/profiles/${this.props.userId}`}>Profile</Link>
             </Breadcrumb.Item>
           </Breadcrumb>
           <div style={{ background: "#fff", padding: 24, minHeight: 280 }}>
@@ -50,6 +50,12 @@ class CustomLayout extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    userId: state.auth.userId
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     logout: () => dispatch(actions.logout())
@@ -58,7 +64,7 @@ const mapDispatchToProps = dispatch => {
 
 export default withRouter(
   connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
   )(CustomLayout)
 );
