@@ -34,9 +34,16 @@ class CustomLayout extends React.Component {
             <Breadcrumb.Item>
               <Link to="/">Home</Link>
             </Breadcrumb.Item>
-            <Breadcrumb.Item>
-              <Link to={`/profiles/${this.props.userId}`}>Profile</Link>
-            </Breadcrumb.Item>
+            {this.props.token !== null ? (
+              <Breadcrumb.Item>
+                <Link to={`/profiles/${this.props.userId}`}>Profile</Link>
+              </Breadcrumb.Item>
+            ) : null}
+            {this.props.token !== null && this.props.is_teacher ? (
+              <Breadcrumb.Item>
+                <Link to="/create">Create</Link>
+              </Breadcrumb.Item>
+            ) : null}
           </Breadcrumb>
           <div style={{ background: "#fff", padding: 24, minHeight: 280 }}>
             {this.props.children}
@@ -52,7 +59,9 @@ class CustomLayout extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    userId: state.auth.userId
+    userId: state.auth.userId,
+    token: state.auth.token,
+    is_teacher: state.auth.is_teacher
   };
 };
 
