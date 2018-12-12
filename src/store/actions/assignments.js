@@ -71,7 +71,6 @@ export const getASNTSDetail = (token, id) => {
       .get(`http://127.0.0.1:8000/assignments/${id}/`)
       .then(res => {
         const assignment = res.data;
-        console.log(assignment);
         dispatch(getASNTDetailSuccess(assignment));
       })
       .catch(err => {

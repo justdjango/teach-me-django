@@ -36,7 +36,7 @@ class CustomLayout extends React.Component {
             </Breadcrumb.Item>
             {this.props.token !== null ? (
               <Breadcrumb.Item>
-                <Link to={`/profiles/${this.props.userId}`}>Profile</Link>
+                <Link to={`/profile/${this.props.userId}`}>Profile</Link>
               </Breadcrumb.Item>
             ) : null}
             {this.props.token !== null && this.props.is_teacher ? (
