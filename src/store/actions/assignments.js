@@ -74,7 +74,7 @@ export const getASNTSDetail = (token, id) => {
         dispatch(getASNTDetailSuccess(assignment));
       })
       .catch(err => {
-        dispatch(getASNTDetailFail());
+        dispatch(getASNTDetailFail(err));
       });
   };
 };
