@@ -1,4 +1,4 @@
-certifi==2018.8.24
+certifi==2022.12.7
 chardet==3.0.4
 defusedxml==0.5.0
 Django==2.2.13
